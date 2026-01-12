@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.app {
+    width: 100%;
+    max-width: 420px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+#taskInput {
+    flex: 2;
+}
+
+#timeInput {
+    width: 70px;
+}
+
+button {
+    padding: 12px 16px;
+    border: none;
+    background: #00adb5;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    margin-top: 25px;
+}
+
+li {
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+li span.task {
+    flex: 1;
+}
+
+li span.timer {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+li.done span.task {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+li button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
