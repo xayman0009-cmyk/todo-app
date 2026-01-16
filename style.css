@@ -2,90 +2,175 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+}
+
+/* THEMES */
+
+body.dark {
+    background: #000;
+    color: #fff;
+}
+
+body.light {
+    background: #fff;
+    color: #000;
 }
 
 body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    overflow: hidden;
 }
 
-.app {
-    width: 100%;
-    max-width: 420px;
-}
+/* TOP PANEL */
 
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.input-area {
+#top-panel {
+    position: absolute;
+    top: 40px;
     display: flex;
-    gap: 10px;
+    gap: 30px;
 }
 
-input {
-    padding: 12px;
+#top-panel button {
+    background: transparent;
     border: none;
-    border-radius: 6px;
-    outline: none;
-}
-
-#taskInput {
-    flex: 2;
-}
-
-#timeInput {
-    width: 70px;
-}
-
-button {
-    padding: 12px 16px;
-    border: none;
-    background: #00adb5;
-    color: white;
-    border-radius: 6px;
+    color: inherit;
+    font-size: 1rem;
     cursor: pointer;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-ul {
-    list-style: none;
-    margin-top: 25px;
+#top-panel button:hover {
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
-li {
-    padding: 12px;
-    margin-bottom: 10px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/*  MAIN CLOCK */
+
+#main-clock-wrapper {
+    padding: 30px 50px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4),
+        inset 0 0 20px rgba(255,255,255,0.05);
 }
 
-li span.task {
-    flex: 1;
+body.light #main-clock-wrapper {
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.15),
+        inset 0 0 20px rgba(0,0,0,0.05);
 }
 
-li span.timer {
-    font-size: 0.85rem;
+#main-clock {
+    font-size: 7rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-align: center;
+    text-shadow:
+        0 2px 4px rgba(0,0,0,0.4),
+        0 6px 12px rgba(0,0,0,0.3),
+        0 14px 30px rgba(0,0,0,0.25);
+    animation: fadeIn 0.5s ease;
+}
+
+/* BLINKING COLON */
+
+.colon {
+    opacity: 1;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* AM / PM */
+
+#ampm {
+    font-size: 2rem;
+    margin-left: 10px;
+    vertical-align: super;
     opacity: 0.8;
 }
 
-li.done span.task {
-    text-decoration: line-through;
-    opacity: 0.6;
+/* BOTTOM PANEL */
+
+#bottom-panel {
+    position: absolute;
+    bottom: 80px;
+    text-align: center;
 }
 
-li button {
+/* TIMER */
+
+#timer {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+    opacity: 0.8;
+    letter-spacing: 2px;
+}
+
+/* CONTROLS */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+}
+
+.controls button {
     background: transparent;
     border: none;
-    color: white;
+    color: inherit;
     font-size: 1rem;
     cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.controls button:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* FADE ANIMATION */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    #main-clock {
+        font-size: 4.5rem;
+    }
+
+    #main-clock-wrapper {
+        padding: 20px 30px;
+    }
+
+    #timer {
+        font-size: 1.2rem;
+    }
+
+    .controls {
+        gap: 20px;
+    }
 }

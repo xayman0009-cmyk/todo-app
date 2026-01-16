@@ -2,23 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List with Timer</title>
+    <title>Digital Clock</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark">
 
-    <main class="app">
-        <h1>To-Do List</h1>
+    <!-- TOP PANEL -->
+    <div id="top-panel">
+        <button id="toggleFormat">24H</button>
+        <button id="themeToggle">☀</button>
+    </div>
 
-        <div class="input-area">
-            <input type="text" id="taskInput" placeholder="Task name" />
-            <input type="number" id="timeInput" placeholder="Min" min="1" />
-            <button id="addBtn">Add</button>
+    <!-- MAIN CLOCK -->
+    <div id="main-clock-wrapper">
+        <div id="main-clock">
+            <span id="hours">00</span>
+            <span class="colon">:</span>
+            <span id="minutes">00</span>
+            <span class="colon">:</span>
+            <span id="seconds">00</span>
+            <span id="ampm">AM</span>
         </div>
+    </div>
 
-        <ul id="taskList"></ul>
-    </main>
+    <!-- BOTTOM PANEL -->
+    <div id="bottom-panel">
+        <div id="timer">00 : 00 : 00</div>
+
+        <div class="controls">
+            <button id="startTimer">Start</button>
+            <button id="pauseTimer">Pause</button>
+            <button id="resetTimer">Reset</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
